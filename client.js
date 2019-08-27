@@ -45,7 +45,7 @@ const employees = [
 // `console.log` the results of each iteration.
 let employeesBonuses = [];
 
-function doesCoolStuff() {
+function runsBonusCalcuolator() {
   for (person of employees){
     employeesBonuses.push(generateBonusInfo(person));
   };
@@ -64,19 +64,19 @@ function EmployeeBonus(name, bonusPercentage, totalCompensation, totalBonus){
   this.bonusPercentage = bonusPercentage;
   this.totalCompensation = totalCompensation;
   this.totalBonus = totalBonus;
-}
+}// end constructor function
 
 function generateBonusInfo(employee){
 let employeeBonusInfo = new EmployeeBonus(
   name = employee.name,
   bonusPercentage = bonusPercentCalc(employee),
   totalCompensation = totalCompensationCalc(employee.annualSalary, this.bonusPercentage),
-  totalBonus = totalBonusCalc()
+  totalBonus = totalBonusCalc(employee.annualSalary, this.bonusPercentage)
 )
 
   // 
 return employeeBonusInfo;
-};
+};// end generateBonusInfo
 
 // ### Individual Bonus calculation
 // - Those who have a rating of a 2 or below should not receive a bonus.
@@ -118,15 +118,15 @@ if (bonusPercent > .13) {
 }
 
 return bonusPercent;
-}
+}// end bonusPercentCalc
 
 function totalCompensationCalc (salary, bonusPercent) {
-  console.log(salary, bonusPercent);
-  
-  return (salary + (salary*bonusPercent));
-}
+  let bonus = salary * bonusPercent;
+  return Number(salary) + Number(bonus);
+} // end totalCompensationCalc
 
-function totalBonusCalc (){
-
-}
+function totalBonusCalc (salary, bonusPercent){
+  let bonus = salary * bonusPercent;
+  return bonus;
+}// end totalBonusCalc
 console.log( employees );
